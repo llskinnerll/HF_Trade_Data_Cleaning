@@ -26,8 +26,8 @@ import sys
 # Define file paths and global ticker correction maps
 # INPUT: None
 # OUTPUT: Strings <INPUT_FILE>, <OUTPUT_FILE>, Dicts <TICKER_FIXES>, <NAME_TO_TICKER_MAP>
-INPUT_FILE = r"C:\Users\Tony Soprano\Desktop\HF_Audit\HF_Trade_History.xlsx"
-OUTPUT_FILE = r"C:\Users\Tony Soprano\Desktop\HF_Audit\HF_Audit_Summary.csv"
+INPUT_FILE = 'HF_Trade_History.xlsx'
+OUTPUT_FILE = 'HF_Audit_Summary.csv'
 
 TICKER_FIXES = {
     'FB': 'META',
@@ -171,3 +171,4 @@ if __name__ == "__main__":
         print(f"STATUS: FAILED")
 
         print(f"ERROR: {str(e)}")
+
