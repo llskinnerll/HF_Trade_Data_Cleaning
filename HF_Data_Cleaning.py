@@ -1,3 +1,22 @@
+'''
+# Forensic Financial Audit and Portfolio Performance Reconstruction
+# INPUT: Excel file <HF_Trade_History.xlsx> containing raw transaction logs
+# OUTPUT: CSV file <HF_Audit_Summary.csv> with split-adjusted performance metrics
+
+# This script automates the recovery and analysis of a 26-year trading history by:
+# 1. Cleaning raw ledger data and resolving missing tickers using historical name maps.
+# 2. Adjusting historical share counts/prices for stock splits via yfinance API.
+# 3. Calculating key performance indicators: VWAP, Total P/L, and CAGR.
+# 4. Identifying position lifecycles, including closed positions and re-entries.
+# 5. Exporting a consolidated summary for portfolio auditing and reporting.
+'''
+# Comments can be read as follows
+# 1. HEADER PURPOSE: First line describes what the code block does.
+# 2. HEADER INPUT: Second line lists names and data types inside <brackets>.
+# 3. HEADER OUTPUT: Third line lists resulting names and data types inside <brackets>.
+# 4. INLINE COMMENTS: Use the "#<" marker for logic explanations on the same line.
+# Happy Coding Patty and Shy
+
 import pandas as pd
 import numpy as np
 import yfinance as yf
@@ -15,6 +34,9 @@ TICKER_FIXES = {
     'ANTM': 'ELV',
 }
 
+
+# Need to find a better way to do this
+# Dennis mentioned WRDS, CRSP, and Compustat
 NAME_TO_TICKER_MAP = {
     'EXXON MOBIL': 'XOM',
     'S&P DEP. RECEIPTS': 'SPY',
@@ -147,4 +169,5 @@ if __name__ == "__main__":
         print(f"ERROR: Permission denied. Please CLOSE '{OUTPUT_FILE}' in Excel and try again.")
     except Exception as e:
         print(f"STATUS: FAILED")
+
         print(f"ERROR: {str(e)}")
